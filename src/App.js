@@ -1,6 +1,5 @@
 import './App.css';
 import {Header} from  "./components/Header.js";
-import {Balance} from "./components/Balance.js";
 import {IncomeExpenses} from"./components/IncomeExpenses.js";
 import {TransactionList} from "./components/TransactionList.js";
 import {Form} from"./components/Form.js";
@@ -11,8 +10,7 @@ function App() {
     <div>
       <GlobalProvider>
       <Header/>
-      <div className="container">
-        <Balance/>
+      <div className="container">  
         <IncomeExpenses/>
         <TransactionList/>
         <Form/>
