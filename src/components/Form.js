@@ -1,11 +1,22 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
+import { GlobalContext } from '../context/GlobalState';
 
 export const Form = () => {
     const [text,setText]=useState("");
     const [amount,setamount]=useState(0);
+    const {addTransaction}=useContext(GlobalContext);
 
     const onsubmit = (e) =>{
         e.preventDefault();
+        const new_trans={
+            id:Math.floor(Math.random() * 100000000),
+            text:text,
+            amount:parseInt(amount)
+        }
+        console.log(new_trans);
+        addTransaction(new_trans);
+        setText("");
+        setamount(0);
 
     };
 
