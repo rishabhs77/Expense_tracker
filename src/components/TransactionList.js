@@ -4,7 +4,9 @@ import {Transaction} from "./Transaction.js"
 
 export const TransactionList = () => {
     const {transactions}=useContext(GlobalContext);
-    console.log(transactions);
+    //console.log(transactions);
+
+    //Mapping to produce single Transaction componenet
     return (
         <div>
             <h3>History</h3>

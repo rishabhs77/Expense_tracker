@@ -1,3 +1,4 @@
+//Logic how the state will change with the given action
 export default (state,action)=>{
     switch (action.type) {
         case "ADD_TRANSACTION":

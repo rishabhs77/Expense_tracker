@@ -5,8 +5,10 @@ export const IncomeExpenses = () => {
     const{transactions}=useContext(GlobalContext);
     const amounts= transactions.map((trans)=>(trans.amount));
     const total= amounts.reduce((acc,item)=>(acc+=item),0);
+    //filter
     const incomeamount=transactions.map((trans)=>(trans.amount>0?trans.amount:0));
     const expenseamouont=transactions.map((trans)=>(trans.amount<0?trans.amount:0));
+    //accumulate
     const inc = incomeamount.reduce((acc,item)=>(acc+=item),0);
     const exp = expenseamouont.reduce((acc,item)=>(acc-=item),0);
 
