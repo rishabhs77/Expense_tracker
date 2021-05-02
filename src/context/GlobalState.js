@@ -2,25 +2,27 @@ import React,{useEffect,createContext,useReducer} from 'react';
 import AppReducer from "./AppReducer"
 //Todo adding state to localtorage.
 
-
 const InitialState={
-    transactions:[
-        { id: 1, text: 'Flower', amount: -20 },
-        { id: 2, text: 'Salary', amount: 300 },
-        { id: 3, text: 'Book', amount: -10 },
-        { id: 4, text: 'Camera', amount: 150 }
-    ]
+    transactions:[]
 };
+//getting from localstorage
+const localState=JSON.parse(localStorage.getItem("EXP"));
+//console.log(localState);
+
 //create context
 export const GlobalContext=createContext(InitialState);
 
 
 //create provider
 export const GlobalProvider=({children})=>{
-
+    
     //similar to useState but we can have multiple functions rather than just setState with this.
-    const[state,dispatch]=useReducer(AppReducer,InitialState);
+    const[state,dispatch]=useReducer(AppReducer,localState || InitialState);
+    
 
+    useEffect( ()=>{
+        localStorage.setItem("EXP",JSON.stringify(state));
+    },[state]);
     //actions which should be accessible to the children
     function addTransaction(new_transaction){
         dispatch({

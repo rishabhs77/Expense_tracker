@@ -13,7 +13,7 @@ export const Form = () => {
             text:text,
             amount:parseInt(amount)
         }
-        console.log(new_trans);
+        //console.log(new_trans);
         addTransaction(new_trans);
         setText("");
         setamount(0);
